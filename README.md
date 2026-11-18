@@ -36,7 +36,7 @@
 
 ## 📌 Overview
 
-This repository is a personal copy for learning and portfolio reference. The original project and implementation are by [Shahid Azam](https://github.com/shahidazam2020-oss). Please refer to the original repository for its history and give the original author credit.
+This repository is maintained by **Shaik Faisal** as a personal learning and portfolio project. The original implementation was created by [Shahid Azam](https://github.com/shahidazam2020-oss); credit and attribution are retained below.
 
 This project implements a real-time **Hand and Finger Tracking System** using Python, MediaPipe, and OpenCV.
 
@@ -363,27 +363,19 @@ python hand-tracking.py
 
 ## 👨‍💻 Developer
 
-### Shahid Azam
+### Shaik Faisal
 
-**MS Computer Science | Artificial Intelligence | Python Development**
+**Software Developer | Python | Computer Vision | AI & ML**
 
-Institute of Management Sciences, Peshawar, Pakistan
+Hyderabad, India
 
 <p>
-  <a href="https://github.com/shahidazam2020-oss">
+  <a href="https://github.com/faisalshaik78">
     <img src="https://img.shields.io/badge/GitHub-Profile-black?logo=github" alt="GitHub">
-  </a>
-  <a href="https://www.linkedin.com/in/shahid-azam-mughal-787b58235">
-    <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin" alt="LinkedIn">
-  </a>
-  <a href="https://www.researchgate.net/profile/Shahid-Azam-5">
-    <img src="https://img.shields.io/badge/ResearchGate-Profile-green?logo=researchgate" alt="ResearchGate">
-  </a>
-  <a href="https://orcid.org/0009-0001-6825-8863">
-    <img src="https://img.shields.io/badge/ORCID-Profile-green?logo=orcid" alt="ORCID">
   </a>
 </p>
 
+**Original project credit:** The original implementation was created by [Shahid Azam](https://github.com/shahidazam2020-oss). This repository is maintained as a personal learning and portfolio copy. Please refer to the original repository for its original history and contributions.
 </div>
 
 ---
