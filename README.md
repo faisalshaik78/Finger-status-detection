@@ -312,25 +312,6 @@ python hand-tracking.py
 | Virtual Drawing | Drawing using the index fingertip. |
 
 ---
-## 📸 Screenshots
-
-| Screenshot 1 | Screenshot 2 |
-|---|---|
-| ![Hand tracking screenshot 1](https://github.com/shahidazam2020-oss/Finger-status-detection/blob/master/.github/workflows/hand_tracking_1_4K_enhanced.png) | ![Hand tracking screenshot 2](https://github.com/shahidazam2020-oss/Finger-status-detection/blob/master/.github/workflows/hand_tracking_2_4K_enhanced.png) |
-| Screenshot 1  | Screenshot 2 |
-
-| Screenshot 3 | Screenshot 4 |
-|---|---|
-| ![Hand tracking screenshot 3](https://github.com/shahidazam2020-oss/Finger-status-detection/blob/master/.github/workflows/hand_tracking_3_4K_enhanced.png) | ![Hand tracking screenshot 4](https://github.com/shahidazam2020-oss/Finger-status-detection/blob/master/.github/workflows/hand_tracking_4_4K_enhanced.png) |
-| Screenshot 3 | Screenshot 4 |
-
-| Screenshot 5 | Screenshot 6 |
-|---|---|
-| ![Hand tracking screenshot 5](https://github.com/shahidazam2020-oss/Finger-status-detection/blob/master/.github/workflows/hand_tracking_5_4K_enhanced.png) | ![Hand tracking screenshot 6](https://github.com/shahidazam2020-oss/Finger-status-detection/blob/master/.github/workflows/hand_tracking_6_4K_enhanced.png) |
-| Screenshot 5 | Screenshot 6  |
-
-
----
 
 ## 📚 Learning Outcomes
 
