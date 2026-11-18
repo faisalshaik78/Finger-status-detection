@@ -363,7 +363,7 @@ python hand-tracking.py
 
 ## 👨‍💻 Developer
 
-### Shaik Faisal
+### Created & Maintained by Shaik Faisal
 
 **Software Developer | Python | Computer Vision | AI & ML**
 
@@ -375,7 +375,7 @@ Hyderabad, India
   </a>
 </p>
 
-**Original project credit:** The original implementation was created by [Shahid Azam](https://github.com/shahidazam2020-oss). This repository is maintained as a personal learning and portfolio copy. Please refer to the original repository for its original history and contributions.
+This project repository was created and is maintained by **Shaik Faisal**. The implementation is based on the original project by [Shahid Azam](https://github.com/shahidazam2020-oss), whose work is acknowledged here.
 </div>
 
 ---
