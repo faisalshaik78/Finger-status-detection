@@ -1,384 +1,101 @@
-<div align="center">
+# Finger Status Detection 🖐️
 
- <a href="https://github.com/shahidazam2020-oss/Finger-status-detection/stargazers">
-    <img src="https://img.shields.io/github/stars/shahidazam2020-oss/Finger-status-detection?style=social&cacheSeconds=60" alt="GitHub Stars">
-  </a>
-  <a href="https://github.com/shahidazam2020-oss/Finger-status-detection/forks">
-    <img src="https://img.shields.io/github/forks/shahidazam2020-oss/Finger-status-detection?style=social&cacheSeconds=60" alt="GitHub Forks">
-  </a>
-  <a href="https://img.shields.io/github/last-commit/shahidazam2020-oss/Finger-status-detection">
-    <img src="https://img.shields.io/github/last-commit/shahidazam2020-oss/Finger-status-detection?style=flat-square" alt="Last Commit">
-  </a>
+A Python computer-vision project that detects hands, tracks finger landmarks, identifies finger positions, and supports virtual drawing using a webcam.
 
-  ---
-# 🖐️ Hand and Finger Tracking with Virtual Drawing
+## Overview
 
-### Real-Time Hand Landmark Detection, Finger Tracking, Gesture Analysis & Virtual Drawing
+The application uses **MediaPipe**, **OpenCV**, and **NumPy** to track hand landmarks in real time. It can analyse finger positions, count raised fingers, and let you draw on a virtual canvas with your index fingertip.
 
-<p>
-  <img src="https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/OpenCV-Computer%20Vision-green?logo=opencv&logoColor=white" alt="OpenCV">
-  <img src="https://img.shields.io/badge/MediaPipe-Hand%20Landmarker-orange" alt="MediaPipe">
-  <img src="https://img.shields.io/badge/NumPy-Array%20Processing-blue?logo=numpy&logoColor=white" alt="NumPy">
-  <img src="https://img.shields.io/badge/Status-Working-success" alt="Status">
-</p>
+This repository is maintained by **Shaik Faisal** as a learning and portfolio project. The original implementation is based on the work by [Shahid Azam](https://github.com/shahidazam2020-oss), with credit retained.
 
-<p>
-  <a href="#-overview">Overview</a> •
-  <a href="#-key-features">Features</a> •
-  <a href="#-project-workflow">Workflow</a> •
-  <a href="#-installation-and-setup">Installation</a> •
-  <a href="#-demo-and-screenshots">Demo</a> •
-  <a href="#-developer">Developer</a>
-</p>
+## Features
 
----
+- Detect up to two hands using a webcam
+- Track 21 landmarks on each detected hand
+- Analyse finger positions and show **Up / Down** status
+- Count raised fingers
+- Identify bent fingers using joint angles
+- Draw on a virtual canvas with the index fingertip
+- Select colours and clear the canvas
 
-## 📌 Overview
+## How It Works
 
-This repository is maintained by **Shaik Faisal** as a personal learning and portfolio project. The original implementation was created by [Shahid Azam](https://github.com/shahidazam2020-oss); credit and attribution are retained below.
+1. Captures frames from the webcam.
+2. Detects hands and their landmarks.
+3. Analyses finger joints and estimates finger status.
+4. Displays the tracking information on the video.
+5. Uses the index fingertip for virtual drawing.
 
-This project implements a real-time **Hand and Finger Tracking System** using Python, MediaPipe, and OpenCV.
+## Tech Stack
 
-**The application captures live webcam video, detects up to two hands, identifies their 21 hand landmarks, and analyses individual finger positions using joint-angle calculations.**
+- **Python** — application logic
+- **OpenCV** — webcam, image processing, and drawing
+- **MediaPipe** — hand landmark detection
+- **NumPy** — canvas and array operations
+- **Math** — joint-angle calculations
 
-**In addition to hand landmark detection, the system performs finger-level analysis to identify raised and bent fingers, calculate the number of raised fingers, and display individual finger statuses.**
+## Run Locally
 
-**The application also includes a virtual drawing feature that allows users to draw on the screen using their index fingertip and select different colours through an interactive colour palette.**
-
-**The project combines computer vision, hand landmark detection, finger tracking, gesture analysis, and interactive drawing in a single application.**
-
-## 🎯 Project Objectives
-
-- Implement real-time hand detection and landmark tracking.
-- Track individual fingers using MediaPipe hand landmarks.
-- Identify whether fingers are raised or lowered.
-- Detect bent fingers through joint-angle calculations.
-- Count raised fingers on individual hands and across detected hands.
-- Track the index fingertip for interactive drawing.
-- Develop a virtual drawing interface using OpenCV.
-
----
-
-## 🚀 Key Features
-
-| Feature | Description |
-|---|---|
-| 🖐️ Hand Detection | Detects up to two hands through the webcam. |
-| 📍 Hand Landmark Tracking | Identifies and visualizes 21 landmarks per detected hand. |
-| ☝️ Individual Finger Tracking | Analyses the thumb, index, middle, ring, and pinky fingers. |
-| 📐 Finger Angle Calculation | Calculates joint angles to determine finger positions. |
-| ⬆️⬇️ Finger Status Recognition | Displays each finger as Up or Down. |
-| 🔢 Finger Counting | Calculates raised fingers for each hand and the combined total. |
-| 🤏 Bent Finger Detection | Identifies bent fingers using joint-angle conditions. |
-| 🎨 Virtual Drawing | Draws on a digital canvas using the index fingertip. |
-| 🌈 Colour Selection | Selects drawing colours through the on-screen palette. |
-| 🧹 Canvas Clearing | Clears the virtual drawing canvas using a keyboard shortcut. |
-| ⌨️ Keyboard Controls | Provides controls for tracking, drawing, and exiting. |
-
----
-
-## 🧠 Hand and Finger Tracking
-
-**The project combines two related computer vision functionalities.**
-
-### 1. Hand Tracking
-
-**The MediaPipe Hand Landmarker detects hand landmarks and identifies their positions in the webcam frame.**
-
-**Each detected hand contains 21 landmarks representing important hand joints and fingertip positions.**
-
-**The application:**
-
-- Detects up to two hands.
-- Retrieves hand landmark coordinates.
-- Identifies handedness when available.
-- Draws landmark points and connecting lines.
-- Visualizes the detected hand structure.
-
-### 2. Finger Tracking
-
-**The system analyses five individual fingers:**
-
-| Finger | Landmark Indices |
-|---|---|
-| Thumb | 1, 2, 3, 4 |
-| Index | 5, 6, 7, 8 |
-| Middle | 9, 10, 11, 12 |
-| Ring | 13, 14, 15, 16 |
-| Pinky | 17, 18, 19, 20 |
-
-**Finger positions are evaluated using joint-angle calculations.**
-
-**Finger Status Logic:**
-
-- Angle greater than 150° → Finger classified as Up.
-- Otherwise → Finger classified as Down.
-
-**The program also checks two angles for each finger and displays a bent-finger label when both angles are below 85°.**
-
-**Note: These are the angle-based conditions implemented in the current program.**
-
----
-
-## 📊 Project Workflow
-
-```text
-          START APPLICATION
-                 |
-                 ▼
-          Initialize Libraries
-                 |
-                 ▼
-       Load MediaPipe Hand Model
-                 |
-                 ▼
-          Open Webcam Camera
-                 |
-                 ▼
-          Capture Video Frame
-                 |
-                 ▼
-          Detect Hand Landmarks
-                 |
-                 ▼
-       ┌───────────────────────┐
-       │    Hand Tracking      │
-       │                       │
-       │  • Detect Hands       │
-       │  • Identify Landmarks │
-       │  • Draw Hand Skeleton │
-       └───────────────────────┘
-                 |
-                 ▼
-       ┌───────────────────────┐
-       │   Finger Tracking     │
-       │                       │
-       │  • Analyse 5 Fingers  │
-       │  • Calculate Angles  │
-       │  • Detect Up / Down  │
-       │  • Detect Bent State │
-       │  • Count Fingers     │
-       └───────────────────────┘
-                 |
-                 ▼
-       ┌───────────────────────┐
-       │   Virtual Drawing     │
-       │                       │
-       │  • Track Index Tip    │
-       │  • Select Colour     │
-       │  • Draw on Canvas    │
-       └───────────────────────┘
-                 |
-                 ▼
-          Display Output
-                 |
-                 ▼
-          Next Video Frame
-```
-
----
-
-## 🎨 Virtual Drawing System
-
-**The application uses the index fingertip to control the virtual drawing interface.**
-
-### Drawing Functionality
-
-- Tracks the index fingertip using landmark 8.
-- Draws on a separate digital canvas.
-- Uses the selected colour for drawing.
-- Allows colour selection through the top colour palette.
-- Combines the webcam frame and drawing canvas for the final output.
-
-### Available Colours
-
-**The current program includes seven drawing colours:**
-
-- Blue
-- Green
-- Red
-- Yellow
-- Magenta
-- White
-- Black
-
----
-
-## ⌨️ Keyboard Controls
-
-| Key | Function |
-|---|---|
-| `Q` | Exit the application. |
-| `T` | Enable or disable hand tracking. |
-| `D` | Enable or disable virtual drawing. |
-| `C` | Clear the drawing canvas. |
-
----
-
-## 🛠️ Technologies Used
-
-| Technology | Purpose |
-|---|---|
-| Python | Main programming language. |
-| OpenCV | Webcam access, image processing, drawing, and display. |
-| MediaPipe | Hand landmark detection and handedness information. |
-| NumPy | Canvas creation and numerical array operations. |
-| Math | Joint-angle calculations. |
-
----
-
-## 📂 Recommended Repository Structure
-
-```text
-Hand-and-Finger-Tracking-with-Virtual-Drawing/
-│
-├── hand-tracking.py
-├── hand_landmarker.task
-├── requirements.txt
-├── README.md
-│
-└── assets/
-    ├── screenshots/
-    │   ├── hand-detection.png
-    │   ├── hand-landmarks.png
-    │   ├── finger-tracking.png
-    │   ├── finger-counting.png
-    │   └── virtual-drawing.png
-    │
-    └── demo/
-        └── hand-finger-tracking-demo.gif
-```
-
-**This is a recommended structure. The screenshots and GIF should be added to the repository when available. The program automatically downloads the MediaPipe model if it is not already present.**
-
----
-
-## ⚙️ Installation and Setup
-
-### 1. Clone the Repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/faisalshaik78/Finger-status-detection.git
-```
-
-### 2. Navigate to the Project Directory
-
-```bash
 cd Finger-status-detection
 ```
 
-### 3. Create a Virtual Environment
+### 2. Create and activate a virtual environment
 
 ```bash
 python -m venv venv
+venv\\Scripts\\activate
 ```
 
-Activate it on Windows:
-
-```bash
-venv\Scripts\activate
-```
-
-### 4. Install Dependencies
+### 3. Install dependencies
 
 ```bash
 pip install opencv-python numpy mediapipe
 ```
 
-### 5. Run the Application
+### 4. Start the application
 
 ```bash
 python hand-tracking.py
 ```
 
-**Requirements:**
-- Python environment.
-- Working webcam.
-- Internet connection on the first run if the MediaPipe model file is not already available.
+You'll need Python installed and a webcam. The MediaPipe model may be downloaded during the first run.
 
----
+## Keyboard Controls
 
-## 🖼️ Demo and Screenshots
-
-**Add actual application screenshots and a short animated GIF to demonstrate the system.**
-
-| Screenshot | Description |
+| Key | Action |
 |---|---|
-| Hand Detection | Live detection of one or two hands. |
-| Hand Landmarks | Visualization of the 21 hand landmarks. |
-| Finger Tracking | Individual finger status detection. |
-| Finger Counting | Display of raised fingers. |
-| Virtual Drawing | Drawing using the index fingertip. |
+| `T` | Toggle hand tracking |
+| `D` | Toggle drawing |
+| `C` | Clear the canvas |
+| `Q` | Quit |
 
----
+## Project Structure
 
-## 📚 Learning Outcomes
+```text
+Finger-status-detection/
+├── hand-tracking.py
+├── hand_landmarker.task
+└── README.md
+```
 
-**Through this project, the following concepts are explored:**
+*The structure above is a simplified overview; additional files may be present in the repository.*
 
-- Real-time computer vision applications.
-- Hand detection and landmark localization.
-- Individual finger tracking and analysis.
-- Joint-angle calculation.
-- Basic gesture and finger-state recognition.
-- Webcam-based interactive applications.
-- Virtual drawing and image overlay techniques.
-- Integration of MediaPipe and OpenCV.
+## Developer
 
----
-
-## 🔮 Future Improvements
-
-**Potential enhancements include:**
-
-- More advanced hand gesture recognition.
-- Improved finger-state classification.
-- Gesture-based drawing activation.
-- Separate drawing controls for both hands.
-- Save and export virtual drawings.
-- Additional drawing tools and colour options.
-- Improved tracking performance and stability.
-
----
-
-## 👨‍💻 Developer
-
-### Created & Maintained by Shaik Faisal
-
-**Software Developer | Python | Computer Vision | AI & ML**
-
+**Shaik Faisal**  
+Software Developer | Python | Computer Vision | AI & ML  
 Hyderabad, India
 
-<p>
-  <a href="https://github.com/faisalshaik78">
-    <img src="https://img.shields.io/badge/GitHub-Profile-black?logo=github" alt="GitHub">
-  </a>
-</p>
+[GitHub Profile](https://github.com/faisalshaik78)
 
-This project repository was created and is maintained by **Shaik Faisal**. The implementation is based on the original project by [Shahid Azam](https://github.com/shahidazam2020-oss), whose work is acknowledged here.
-</div>
+## Acknowledgements
+
+Original project implementation by [Shahid Azam](https://github.com/shahidazam2020-oss). This repository retains attribution to the original work.
 
 ---
 
-## 📄 License
-
-This project is available for educational and learning purposes. Add a LICENSE file to the repository if you intend to distribute it under a specific open-source license.
-
-
----
-## 📄Suggestions, improvements, and contributions are welcome.
-
-1. Fork this repository.
-2. Create a new branch.
-3. Make your changes.
-4. Submit a pull request.
-
-
-<div align="center">
-
-### ⭐ If you find this project interesting, consider giving the repository a star!
-
-**Built with Python, MediaPipe, and OpenCV.**
-
-</div>
+Suggestions and improvements are welcome.
